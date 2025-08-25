@@ -1,0 +1,32 @@
+.opciones-container {
+  padding: 40px;
+  text-align: center;
+  background-color: #f4f9f4;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.opciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.opciones-card {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  border-left: 6px solid #2e7d32;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.2s ease;
+}
+
+.opciones-card:hover {
+  transform: scale(1.02);
+  background-color: #e6f2e6;
+}

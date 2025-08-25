@@ -14,7 +14,7 @@ function Login() {
 
     if (usuario === 'alumno' && clave === '1234') {
       setError(''); // Limpia el error si el login es correcto
-      navigate('/materias');
+      navigate('/instituciones');
     } else {
       setError('Usuario o contraseña incorrectos');
     }

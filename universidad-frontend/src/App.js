@@ -1,21 +1,27 @@
-// src/App.js
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import Materias from './Materias';
+import OpcionesAElegir from './OpcionesAElegir';
+import Instituciones from './Instituciones';
+import Calendario from './Calendario';
+import React from 'react';
 
 function App() {
+  const location = useLocation();
+  const mostrarCalendario = location.pathname !== '/' && location.pathname !== '/instituciones';
   return (
-    <Router>
+    <>
       <Routes>
-        
         <Route path="/" element={<Login />} />
         <Route path="/registro" element={<Register />} />
         <Route path="/materias" element={<Materias />} />
-
+        <Route path="/opcionesaelegir" element={<OpcionesAElegir />} />
+        <Route path="/instituciones" element={<Instituciones />} />
       </Routes>
-    </Router>
+
+      {mostrarCalendario && <Calendario />}
+    </>
   );
 }
-
 export default App;
