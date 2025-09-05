@@ -4,12 +4,43 @@ body {
   background-color: white;
 }
 
+.Login-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Login-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.Login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
 .login-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  z-index: 1;
 }
 
 .logo {
@@ -18,12 +49,15 @@ body {
 }
 
 form {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3); /* Blanco con 30% opacidad */
+  backdrop-filter: blur(10px); /* Desenfoque del fondo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   width: 300px;
 }
+
 
 input {
   width: 100%;
@@ -48,8 +82,16 @@ button:hover {
 }
 
 .error-message {
-  color: red; /* Esto pone el texto en rojo */
+  color: red;
   margin-bottom: 15px;
   text-align: center;
   font-size: 14px;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.registro-texto {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 15px;
 }

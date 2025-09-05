@@ -9,12 +9,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "react": "^19.1.1",
     "react-calendar": "^6.0.0",
     "react-dom": "^19.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/12DFEXE/Pagina-Educarse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/12DFEXE/Pagina-Educarse/issues"
+  },
+  "homepage": "https://github.com/12DFEXE/Pagina-Educarse#readme",
+  "description": ""
 }

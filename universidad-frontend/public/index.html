@@ -16,43 +16,5 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
-    <!-- Chatbot de Chatbase -->
-    <script>
-      (function () {
-        if (
-          !window.chatbase ||
-          window.chatbase("getState") !== "initialized"
-        ) {
-          window.chatbase = (...arguments_) => {
-            if (!window.chatbase.q) {
-              window.chatbase.q = [];
-            }
-            window.chatbase.q.push(arguments_);
-          };
-          window.chatbase = new Proxy(window.chatbase, {
-            get(target, prop) {
-              if (prop === "q") {
-                return target.q;
-              }
-              return (...args) => target(prop, ...args);
-            },
-          });
-        }
-        const onLoad = function () {
-          const script = document.createElement("script");
-          script.src = "https://www.chatbase.co/embed.min.js";
-          script.id = "TzXOBWG38HpRv8NAgqXWp"; <!-- reemplaza este ID con el tuyo -->
-          script.domain = "www.chatbase.co";
-          document.body.appendChild(script);
-        };
-        if (document.readyState === "complete") {
-          onLoad();
-        } else {
-          window.addEventListener("load", onLoad);
-        }
-      })();
-    </script>
-    <!-- Fin chatbot de Chatbase -->
   </body>
 </html>

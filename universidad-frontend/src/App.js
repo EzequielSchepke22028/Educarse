@@ -5,11 +5,17 @@ import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
 import Instituciones from './Instituciones';
 import Calendario from './Calendario';
+import chatbot from './chatbot';  // 👈 asegurate que el archivo se llame Chatbot.js con mayúscula
 import React from 'react';
 
 function App() {
   const location = useLocation();
-  const mostrarCalendario = location.pathname !== '/' && location.pathname !== '/instituciones';
+
+  // No mostrar ni Calendario ni Chatbot en la página de login ("/")
+  const chatbottt = location.pathname !== '/';
+  const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" ;
+
+
   return (
     <>
       <Routes>
@@ -20,8 +26,10 @@ function App() {
         <Route path="/instituciones" element={<Instituciones />} />
       </Routes>
 
-      {mostrarCalendario && <Calendario />}
+      {calendar && <Calendario />}
+      {chatbottt && <chatbot />}
     </>
   );
 }
+
 export default App;

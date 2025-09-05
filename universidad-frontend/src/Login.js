@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // para los estilos
-import image from './image.png'; // ✅ imagen importada correctamente
+import './Login.css';
 
 function Login() {
   const [usuario, setUsuario] = useState('');
@@ -13,41 +12,58 @@ function Login() {
     e.preventDefault();
 
     if (usuario === 'alumno' && clave === '1234') {
-      setError(''); // Limpia el error si el login es correcto
+      setError('');
       navigate('/instituciones');
     } else {
       setError('Usuario o contraseña incorrectos');
     }
   };
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
   return (
-    <div className="login-container">
-      <img src={image} alt="Logo" className="logo" />
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={manejarLogin}>
-        {error && <div className="error-message">{error}</div>}
+    <div className="Login-wrapper">
+      <div
+        className="Login-fondo"
+        style={{ backgroundImage: "url('/imagenes/loginima.png')" }}
+      >
+        <div className="Login-overlay"></div>
+      </div>
 
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={clave}
-          onChange={(e) => setClave(e.target.value)}
-          required
-        />
+      <div className="login-container">
+        <h2>Iniciar sesión</h2>
+        <form onSubmit={manejarLogin}>
+          {error && <div className="error-message">{error}</div>}
 
-        <p className="registro-texto">
-          ¿No tiene usuario? <a href="/registro">Regístrese aquí</a>
-        </p>
+          <input
+            type="text"
+            placeholder="Usuario"
+            aria-label="Usuario"
+            value={usuario}
+            onChange={(e) => setUsuario(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            aria-label="Contraseña"
+            value={clave}
+            onChange={(e) => setClave(e.target.value)}
+            required
+          />
 
-        <button type="submit">Ingresar</button>
-      </form>
+          <p className="registro-texto">
+            ¿No tiene usuario? <a href="/registro">Regístrese aquí</a>
+          </p>
+
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
     </div>
   );
 }
