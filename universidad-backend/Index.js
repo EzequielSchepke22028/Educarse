@@ -4,12 +4,18 @@ require('dotenv').config();
 // 2. Importar dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // ← nuevo
+
 
 // 3. Crear instancia de Express
 const app = express();
 
 // 4. Middleware para parsear JSON
 app.use(express.json());
+
+
+// 4.5 Habilitar CORS
+app.use(cors()); // ← nuevo
 
 // 5. Conectar a MongoDB usando la URI del .env
 mongoose.connect(process.env.MONGO_URI, {

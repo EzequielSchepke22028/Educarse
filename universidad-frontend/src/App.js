@@ -5,7 +5,7 @@ import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
 import Instituciones from './Instituciones';
 import Calendario from './Calendario';
-import chatbot from './chatbot';  // 👈 asegurate que el archivo se llame Chatbot.js con mayúscula
+import Chatbot from './Chatbot';  // 👈 asegurate que el archivo se llame Chatbot.js con mayúscula
 import React from 'react';
 
 function App() {
@@ -27,9 +27,9 @@ function App() {
       </Routes>
 
       {calendar && <Calendario />}
-      {chatbottt && <chatbot />}
+      {chatbottt && <Chatbot />}
     </>
   );
 }
 
-export default App;
+export default App;//
