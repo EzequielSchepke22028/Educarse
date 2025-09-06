@@ -1,59 +1,75 @@
-//Controlador de login 
-
-
-// Importa el modelo de usuario desde la carpeta models.
-// Este modelo representa la estructura de los documentos en la colección de usuarios en MongoDB.
+// Importa el modelo de usuario desde la carpeta models
 const User = require("../Models/Users");
 
-// Importa la librería bcrypt, que permite comparar contraseñas encriptadas.
-// Nunca se deben comparar contraseñas en texto plano por seguridad.
+// Importa la librería bcrypt para encriptar y comparar contraseñas
 const bcrypt = require("bcrypt");
 
-// Exporta la función login para que pueda ser usada en las rutas.
-// Esta función maneja el proceso de autenticación del usuario.
+// 🔐 Registro de usuario
+exports.register = async (req, res) => {
+  try {// para capturar errores y si existe alguno lo manda al catch
+    const { username, password } = req.body;
+
+    // Validación básica
+    if (!username || !password) {
+      return res.status(400).send("Faltan datos");
+    }
+
+    // Verifica si el usuario ya existe
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(409).send("Usuario ya existe");
+    }
+
+    // Encripta la contraseña
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    // Crea y guarda el nuevo usuario
+    const newUser = new User({
+      username,
+      passwordHash,
+      failedAttempts: 0,
+      isBlocked: false
+    });
+
+    await newUser.save();
+    return res.status(201).send("Usuario registrado correctamente.");
+  } catch (err) {
+    console.error("Error en registro:", err);
+    return res.status(500).send("Error interno del servidor");
+  }
+};
+
+// 🔓 Login de usuario
 exports.login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
 
-  // Extrae el nombre de usuario y la contraseña del cuerpo de la solicitud.
-  // Estos datos vienen del frontend (por ejemplo, desde un formulario de login).
-  const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).send("Usuario no encontrado, intente de nuevo");
+    }
 
-  // Busca en la base de datos un usuario cuyo campo 'username' coincida con el ingresado.
-  // Si no lo encuentra, devuelve null.
-  const user = await User.findOne({ username });
+    if (user.isBlocked) {
+      return res.status(403).send("Cuenta bloqueada");
+    }
 
-  // Si no se encontró ningún usuario, responde con un código 401 (no autorizado)
-  // y un mensaje indicando que el usuario no existe.
-  if (!user) return res.status(401).send("usuario no encontrado, intente de nuevo");
+    const isValid = await bcrypt.compare(password, user.passwordHash);
+    if (!isValid) {
+      user.failedAttempts += 1;
+      if (user.failedAttempts >= 3) {
+        user.isBlocked = true;
+      }
+      await user.save();
+      return res.status(401).send("Credenciales incorrectas");
+    }
 
-  // Si el usuario está bloqueado (por demasiados intentos fallidos), responde con un 403 (prohibido).
-  if (user.isBlocked) return res.status(403).send("Cuenta bloqueada");
-
-  // Compara la contraseña ingresada con la contraseña encriptada guardada en la base de datos.
-  // bcrypt.compare devuelve true si coinciden, false si no.
-  const isValid = await bcrypt.compare(password, user.passwordHash);
-
-  // Si la contraseña es incorrecta:
-  if (!isValid) {
-    // Aumenta el contador de intentos fallidos.
-    user.failedAttempts += 1;
-
-    // Si el usuario falló 3 veces o más, se bloquea la cuenta.
-    if (user.failedAttempts >= 3) user.isBlocked = true;
-
-    // Guarda los cambios en la base de datos (contador actualizado y posible bloqueo).
+    // Login exitoso: reinicia intentos fallidos
+    user.failedAttempts = 0;
     await user.save();
 
-    // Devuelve una respuesta con código 401 y mensaje de credenciales incorrectas.
-    return res.status(401).send("Credenciales incorrectas");
+    return res.send("Login exitoso");
+  } catch (err) {
+    console.error("Error en login:", err);
+    return res.status(500).send("Error interno del servidor");
   }
-
-  // Si la contraseña es correcta:
-  // Reinicia el contador de intentos fallidos a 0.
-  user.failedAttempts = 0;
-
-  // Guarda el cambio en la base de datos.
-  await user.save();
-
-  // Devuelve una respuesta exitosa al frontend.
-  res.send("Login exitoso");
 };

@@ -8,14 +8,32 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const manejarLogin = (e) => {
+  const manejarLogin = async (e) => {
     e.preventDefault();
 
-    if (usuario === 'alumno' && clave === '1234') {
-      setError('');
-      navigate('/instituciones');
-    } else {
-      setError('Usuario o contraseña incorrectos');
+    try {
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: usuario,
+          password: clave
+        })
+      });
+
+      const resultado = await response.text();
+
+      if (response.ok) {
+        setError('');
+        navigate('/instituciones');
+      } else {
+        setError(resultado); // muestra el mensaje del backend
+      }
+    } catch (err) {
+      console.error("Error al conectar con el backend:", err);
+      setError("No se pudo conectar con el servidor");
     }
   };
 

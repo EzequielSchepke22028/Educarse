@@ -8,6 +8,8 @@ const router = express.Router();
 const authController = require("../Controllers/authController");
 
 router.post("/login", authController.login);
+router.post("/register", authController.register);
+
 
 module.exports = router;//- Exporta el router para que pueda ser usado en el archivo principal (index.js
 

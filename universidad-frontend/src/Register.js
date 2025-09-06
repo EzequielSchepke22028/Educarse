@@ -8,31 +8,48 @@ function Register() {
   const [clave, setClave] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
-  const [foto, setFoto] = useState(null);
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
-  const manejarRegistro = (e) => {
+  const manejarRegistro = async (e) => {
     e.preventDefault();
 
-    // Aquí podrías enviar los datos a una API o guardarlos en localStorage
-    console.log({
-      dni,
-      usuario,
-      clave,
-      nombre,
-      apellido,
-      foto
-    });
+    try {
+      const response = await fetch("http://localhost:3000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: usuario,
+          password: clave,
+          dni,
+          nombre,
+          apellido
+        })
+      });
 
-    alert('Registro exitoso');
-    navigate('/'); // Vuelve al login
+      const resultado = await response.text();
+
+      if (response.ok) {
+        alert("Registro exitoso");
+        navigate('/');
+      } else {
+        setError(resultado);
+      }
+    } catch (err) {
+      console.error("Error al registrar:", err);
+      setError("No se pudo conectar con el servidor");
+    }
   };
 
   return (
     <div className="registro-container">
       <h2>Registro de Ingresante</h2>
       <form onSubmit={manejarRegistro}>
+        {error && <div className="error-message">{error}</div>}
+
         <input
           type="text"
           placeholder="DNI"
@@ -68,15 +85,6 @@ function Register() {
           onChange={(e) => setApellido(e.target.value)}
           required
         />
-        <label className="label-foto">
-          Foto de perfil:
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setFoto(e.target.files[0])}
-            required
-          />
-        </label>
 
         <button type="submit">Registrarse</button>
       </form>

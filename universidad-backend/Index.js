@@ -29,8 +29,4 @@ const PORT = process.env.PORT || 3000;
 // 8. Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
-
-const mongoose = require("mongoose");
-
-
 });
