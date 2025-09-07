@@ -6,6 +6,8 @@ import OpcionesAElegir from './OpcionesAElegir';
 import Instituciones from './Instituciones';
 import Calendario from './Calendario';
 import Chatbot from './Chatbot';  // 👈 asegurate que el archivo se llame Chatbot.js con mayúscula
+import Institucionalinicio from './Institucional-Inicio';
+
 import React from 'react';
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Institucionalinicio />} />
+        <Route path="/login" element={<Login />} />  
         <Route path="/registro" element={<Register />} />
         <Route path="/materias" element={<Materias />} />
         <Route path="/opcionesaelegir" element={<OpcionesAElegir />} />
