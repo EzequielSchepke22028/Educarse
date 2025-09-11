@@ -18,8 +18,8 @@ const navigate = useNavigate();
           </ul>
         </nav>
         <div className="hero-content">
-          <h1>Institutos de Formación Técnica</h1>
-          <p>Educación publica, No arancelada y de calidad para tu futuro</p>
+          <h1>INSTITUTO DE FORMACIÓN TÉCNICA SUPERIOR</h1>
+          <p>Educación pública, no arancelada y de calidad para tu futuro</p>
           <button className="btn" onClick={() => navigate('/login')}>Inscribite Ahora</button>         
         </div>
       </header>
