@@ -29,7 +29,7 @@ function Login() {
         setError('');
         navigate('/instituciones');
       } else {
-        setError(resultado); // muestra el mensaje del backend
+        setError(resultado);
       }
     } catch (err) {
       console.error("Error al conectar con el backend:", err);
@@ -45,16 +45,15 @@ function Login() {
   }, [error]);
 
   return (
-    <div className="Login-wrapper">
-      <div
-        className="Login-fondo"
-        style={{ backgroundImage: "url('/imagenes/loginima.png')" }}
-      >
-        <div className="Login-overlay"></div>
-      </div>
+    <div className="login-wrapper">
+<video autoPlay muted loop className="background-video">
+  <source src="/imagenes/VideoInst.mp4" type="video/mp4" />
+  Tu navegador no soporta video HTML5.
+</video>
 
-      <div className="login-container">
-        <h2>Iniciar sesión</h2>
+
+      <div className="login-panel">
+        <h2>Acceso Campus IFTS</h2>
         <form onSubmit={manejarLogin}>
           {error && <div className="error-message">{error}</div>}
 
