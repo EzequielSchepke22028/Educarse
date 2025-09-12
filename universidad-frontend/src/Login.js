@@ -46,10 +46,9 @@ function Login() {
 
   return (
     <div className="login-wrapper">
-<video autoPlay muted loop className="background-video">
-  <source src="/imagenes/VideoInst.mp4" type="video/mp4" />
-  Tu navegador no soporta video HTML5.
-</video>
+      <video autoPlay muted loop className="background-video">
+      <source src="/imagenes/VIDEO ESTUDIANTES DE FONDO.mp4" type="video/mp4" />
+      </video>
 
 
       <div className="login-panel">
@@ -75,8 +74,10 @@ function Login() {
           />
 
           <p className="registro-texto">
-            ¿No tiene usuario? <a href="/registro">Regístrese aquí</a>
+            <a href="/registro">¿No tiene usuario? Regístrese aquí</a>
           </p>
+
+          
 
           <button type="submit">Ingresar</button>
         </form>

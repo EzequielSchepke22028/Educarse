@@ -9,15 +9,22 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 55vw;
   height: 100vh;
   object-fit: cover;
   z-index: 0;
+  background-color: rgba(255, 255, 255, 0.3); /* blanco semitransparente */
+  opacity: 0.4; /* 0 = invisible, 1 = opaco */
+
+
+  
 }
 
 .login-panel {
   position: relative;
   z-index: 1;
+  top: 0;
+  left: 3;
   width: 40%;
   height: 100%;
   margin-left: auto;
@@ -27,14 +34,15 @@
   flex-direction: column;
   justify-content: center;
   padding: 3rem;
-  color: white;
+  align-items: center;
+  color: rgb(236, 232, 232);
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .login-panel h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  text-align: left-center;
+  text-align: center;
 }
 
 form {
@@ -62,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: #e0e0e0;
+  background-color: #d11212;
 }
 
 .error-message {
