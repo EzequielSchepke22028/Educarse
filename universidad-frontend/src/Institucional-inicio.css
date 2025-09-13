@@ -42,21 +42,37 @@ body {
   padding: 1rem 2rem;
 }
 
+
+
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  position: absolute;
+  top: -0.4rem;
+  left: 1rem;
+  z-index: 2;
 }
+
+.logo img {
+  width: 100px; /* ajustá según tu diseño */
+  height: auto;
+  opacity: 0.9; /* si querés que se vea más suave sobre el fondo */
+}
+
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  right:2rem;
+
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  right:2rem;
+   padding: 6rem 3rem;
+
 }
 
 .hero-content {
@@ -84,6 +100,28 @@ body {
 
 .btn {
   display: inline-block;
+  margin-top: 2rem;
+  padding: 0.50rem 3.5rem;
+background-color: rgba(255, 255, 255, 0.7); /* blanco con 70% opacidad */
+  color: rgba(6, 36, 4, 0.85);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+  text-align: center;
+  margin: 2rem auto;
+  display: block;
+}
+
+
+.btn:hover {
+  background-color: #f0f0f0;
+}
+
+
+.btncampus {
+  display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
 background-color: rgba(255, 255, 255, 0.7); /* blanco con 70% opacidad */
@@ -99,9 +137,11 @@ background-color: rgba(255, 255, 255, 0.7); /* blanco con 70% opacidad */
 }
 
 
-.btn:hover {
+.btncampus:hover {
   background-color: #f0f0f0;
+  opacity:9;
 }
+
 
 .institucional-section {
   background-color: white;

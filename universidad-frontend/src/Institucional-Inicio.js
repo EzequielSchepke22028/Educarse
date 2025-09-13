@@ -9,8 +9,10 @@ const navigate = useNavigate();
     <div className="institucional-wrapper">
       <header className="institucional-header">
         <nav className="institucional-navbar">
-          <div className="logo">IFTS</div>
-          <ul className="nav-links">
+      <div className="logo">
+      <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
+      </div>          
+      <ul className="nav-links">
             <li><a href="#programas">Programas</a></li>
             <li><a href="#institucional">Institucional</a></li>
             <li><a href="#eventos">Eventos</a></li>
@@ -20,7 +22,8 @@ const navigate = useNavigate();
         <div className="hero-content">
           <h1>INSTITUTO DE FORMACIÓN TÉCNICA SUPERIOR</h1>
           <p>Educación pública, no arancelada y de calidad para tu futuro</p>
-          <button className="btn" onClick={() => navigate('/login')}>Inscribite Ahora</button>         
+          <button className="btn" onClick={() => navigate('/Formulario')}>¿No sos Alumno? Inscribite Ahora</button>     
+          <button className="btncampus" onClick={() => navigate('/login')}>¿Ya sos alumno? Accede al campus</button>      
         </div>
       </header>
 
@@ -37,10 +40,9 @@ const navigate = useNavigate();
         </section>
 
         <section id="eventos" className="institucional-section">
-          <h2>Próximos Eventos</h2>
+          <h2>Convenios con Universidades</h2>
           <ul>
-            <li>📅 Charla sobre ciberseguridad - 15 de septiembre</li>
-            <li>📅 Jornada de puertas abiertas - 28 de septiembre</li>
+
           </ul>
         </section>
       </main>

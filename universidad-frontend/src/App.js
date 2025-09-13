@@ -3,6 +3,7 @@ import Login from './Login';
 import Register from './Register';
 import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
+import Formulario from './Formulario'; // ✅ correcto
 import Instituciones from './Instituciones';
 import Calendario from './Calendario';
 import Chatbot from './Chatbot';  // 👈 asegurate que el archivo se llame Chatbot.js con mayúscula
@@ -15,13 +16,14 @@ function App() {
 
   // No mostrar ni Calendario ni Chatbot en la página de login ("/")
   const chatbottt = location.pathname !== '/';
-  const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" && location.pathname !== "/login";
+  const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" && location.pathname !== "/login" && location.pathname!=="/Formulario";
 
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Institucionalinicio />} />
+        <Route path="/Formulario" element={<Formulario />} />  
         <Route path="/login" element={<Login />} />  
         <Route path="/registro" element={<Register />} />
         <Route path="/materias" element={<Materias />} />
