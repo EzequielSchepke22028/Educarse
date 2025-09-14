@@ -1,7 +1,9 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Login from './Login';
 import Donde from './Donde'; //
-import SobreIFTS from './SobreIFTS'; // 
+import SobreIFTS from './SobreIFTS'; 
+import OfertaAcademica from './OfertaAcademica'; 
+import Convenio from './Convenio'; 
 import Register from './Register';
 import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
@@ -20,7 +22,7 @@ function App() {
   // No mostrar ni Calendario ni Chatbot en la página de login ("/")
   const chatbottt = location.pathname !== '/';
   const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" && location.pathname !== "/login" && location.pathname!=="/Formulario"&& location.pathname!=="/Donde"
-  && location.pathname!=="/SobreIFTS";
+  && location.pathname!=="/SobreIFTS"&& location.pathname!=="/OfertaAcademica";
 
 
   return (
@@ -35,6 +37,8 @@ function App() {
         <Route path="/instituciones" element={<Instituciones />} />
         <Route path="/Donde" element={<Donde />} />
         <Route path="/SobreIFTS" element={<SobreIFTS />} />
+        <Route path="/OfertaAcademica" element={<OfertaAcademica />} />
+        <Route path="/Convenio" element={<Convenio />} />
 
       </Routes>
 

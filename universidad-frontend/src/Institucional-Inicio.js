@@ -49,15 +49,22 @@ function Institucionalinicio() {
           </h2>
         </section>
 
-        <section id="programas" className="institucional-section">
-          <h2>Programas Académicos</h2>
+        <section id="OfertaAcademica" className="institucional-section">
+            <h2
+            className={`OfertaAcademica ${seleccionada ? 'activa' : ''}`}
+            onClick={() => manejarClick('/OfertaAcademica')}
+          >
+           Oferta Academica
+          </h2>
         </section>
 
         <section id="eventos" className="institucional-section">
-          <h2>Convenios con Universidades</h2>
-          <ul>
-            {/* contenido futuro */}
-          </ul>
+            <h2
+            className={`Convenio ${seleccionada ? 'activa' : ''}`}
+            onClick={() => manejarClick('/Convenio')}
+          >
+           Convenios con Universidades
+          </h2>
         </section>
 
         <section id="institucional" className="institucional-section">
