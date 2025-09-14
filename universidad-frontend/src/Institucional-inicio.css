@@ -9,8 +9,15 @@ body {
 }
 
 .institucional-wrapper {
-  width: 100%;
-  overflow-x: hidden;
+  background-size: cover;
+  background-position: top; /* ✅ sube la imagen hacia arriba */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: top;
+
 }
 
 .institucional-header {
@@ -19,7 +26,11 @@ body {
   background-position: center;
   color: rgb(240, 234, 234);
   background-image: url('C:\Users\Exequiel Anaya\Desktop\JavaScript\Pagina-Educarse\universidad-frontend\public\imagenes\campus4.png');
-  padding-bottom: 4rem;
+  padding-bottom: 15rem;
+  padding: 50;
+   z-index: 1;
+  
+
 }
 
 .institucional-header::before {
@@ -31,17 +42,8 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4); /* ← Ajustá el nivel de transparencia acá */
   z-index: 1;
+  
 }
-
-
-.institucional-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(6, 36, 4, 0.85);
-  padding: 1rem 2rem;
-}
-
 
 
 .logo {
@@ -61,8 +63,8 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  right:2rem;
+  gap: 3.5rem;
+  right:7rem;
 
 }
 
@@ -71,7 +73,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   right:2rem;
-   padding: 6rem 3rem;
+  padding: 15rem 7rem;
 
 }
 
@@ -80,7 +82,7 @@ body {
   z-index: 2; /* Para que el texto quede encima del overlay */
   text-align: center;
   padding: 5rem 2rem;
-  margin: 2rem auto;
+  margin: 0rem auto;
   max-width: 90vw;
   border-radius: 8px;
 }
