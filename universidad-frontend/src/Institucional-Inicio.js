@@ -1,5 +1,4 @@
 import './Institucional-inicio.css';
-
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -7,9 +6,11 @@ function Institucionalinicio() {
   const navigate = useNavigate();
   const [seleccionada, setSeleccionada] = useState(false);
 
-  const manejarClick = () => {
+  const manejarClick = (rutaDestino) => {
     setSeleccionada(true);
-    navigate('/SobreIFTS');
+    setTimeout(() => {
+      navigate(rutaDestino);
+    }, 300); // ✅ espera 300ms para mostrar el efecto visual
   };
 
   return (
@@ -29,18 +30,22 @@ function Institucionalinicio() {
         <div className="hero-content">
           <h1>INSTITUTO DE FORMACIÓN TÉCNICA SUPERIOR</h1>
           <p>Educación pública, no arancelada y de calidad para tu futuro</p>
-          <button className="btn" onClick={() => navigate('/Formulario')}>¿No sos Alumno? Inscribite Ahora</button>
-          <button className="btncampus" onClick={() => navigate('/login')}>¿Ya sos alumno? Accede al campus</button>
+          <button className="btn" onClick={() => manejarClick('/Formulario')}>
+            ¿No sos Alumno? Inscribite Ahora
+          </button>
+          <button className="btncampus" onClick={() => manejarClick('/login')}>
+            ¿Ya sos alumno? Accedé al campus
+          </button>
         </div>
       </header>
 
       <main>
-        <section id="institucional" className="institucional-section">
+        <section id="programas" className="institucional-section">
           <h2
-            className={`sobreIfts ${seleccionada ? 'activa' : ''}`}
-            onClick={manejarClick}
+            className={`SobreIFTS ${seleccionada ? 'activa' : ''}`}
+            onClick={() => manejarClick('/SobreIFTS')}
           >
-            Sobre el IFTS
+            Sobre IFTS
           </h2>
         </section>
 
@@ -53,6 +58,15 @@ function Institucionalinicio() {
           <ul>
             {/* contenido futuro */}
           </ul>
+        </section>
+
+        <section id="institucional" className="institucional-section">
+          <h2
+            className={`Donde ${seleccionada ? 'activa' : ''}`}
+            onClick={() => manejarClick('/Donde')}
+          >
+            ¿Dónde encontrarnos?
+          </h2>
         </section>
       </main>
 
