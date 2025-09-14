@@ -179,3 +179,26 @@ background-color: rgba(255, 255, 255, 0.7); /* blanco con 70% opacidad */
     font-size: 2rem;
   }
 }
+.sobreIfts {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  color: #062404; /* texto institucional */
+}
+
+.sobreIfts:hover {
+  opacity: 3.6; /* ✅ más transparente al pasar el mouse */
+  color: rgba(4, 94, 71, 0.662); /* texto claro sobre fondo oscuro */
+}
+
+.sobreIfts.activa {
+  background-color: #a7d0ff; /* fondo azul claro institucional */
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* efecto de selección */
+  color: #062404;
+}
+
+
+

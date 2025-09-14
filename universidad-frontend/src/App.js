@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Login from './Login';
+import SobreIFTS from './SobreIFTS';
 import Register from './Register';
 import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
@@ -29,6 +30,8 @@ function App() {
         <Route path="/materias" element={<Materias />} />
         <Route path="/opcionesaelegir" element={<OpcionesAElegir />} />
         <Route path="/instituciones" element={<Instituciones />} />
+        <Route path="/SobreIFTS" element={<SobreIFTS />} />
+
       </Routes>
 
       {calendar && <Calendario />}
