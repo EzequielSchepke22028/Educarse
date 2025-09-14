@@ -19,7 +19,8 @@ function App() {
 
   // No mostrar ni Calendario ni Chatbot en la página de login ("/")
   const chatbottt = location.pathname !== '/';
-  const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" && location.pathname !== "/login" && location.pathname!=="/Formulario"&& location.pathname!=="/Donde";
+  const calendar = location.pathname !== '/' && location.pathname !== "/instituciones" && location.pathname !== "/login" && location.pathname!=="/Formulario"&& location.pathname!=="/Donde"
+  && location.pathname!=="/SobreIFTS";
 
 
   return (
