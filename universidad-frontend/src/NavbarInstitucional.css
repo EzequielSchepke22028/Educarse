@@ -1,13 +1,13 @@
 .institucional-navbar {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* ✅ más alto que el login-panel */
   background-color: rgba(1, 3, 47, 0.867);
   backdrop-filter: blur(10px);
-    margin-left:0%; /* ✅ empuja el bloque hacia la derecha */
-    width: 5;
-  height: 5;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 2rem;
 }
 
 /* Alinea los botones a la derecha */
