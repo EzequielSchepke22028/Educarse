@@ -13,17 +13,16 @@
 /* Alinea los botones a la derecha */
 .botones-navbar {
   display: flex;
-  gap: 1rem;
-  margin-left: auto; /* ✅ empuja el bloque hacia la derecha */
+  gap: 0;
+  margin-left:0; /* ✅ empuja el bloque hacia la derecha */
   width: 1;
   height: 1;
 }
 
-/* Botón institucional */
+/* Botón inscribite */
 .btn {
 margin-left:80%;
  padding: 0.5rem 0.1rem;
-
   background-color: rgba(255, 255, 255, 0.05);
   color: rgb(255, 255, 255);
   font-weight:normal;
@@ -36,18 +35,16 @@ margin-left:80%;
 }
 .btncampus {
   padding: 0.5rem 0.2rem;
-
   background-color: rgba(255, 255, 255, 0.05);
   color: rgb(255, 255, 255);
   font-weight:normal;
   border-radius: 30px;
-  width: 150px;
+  width: 130px;
   height: 205;
   transition: background-color 1.0s ease;
   border: 0;
   cursor: pointer;
-  
-  margin-left:10%;
+ margin-left:10%;
 
 
 }
