@@ -145,7 +145,7 @@ body {
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
   transition: opacity 0.3s ease, background-color 0.3s ease;
-  color: #062404; /* texto institucional */
+  color:  rgba(1, 3, 47, 0.867); /* texto institucional */
 }
 
 .Donde:hover {
@@ -155,7 +155,7 @@ body {
 
 .Donde.activa {
   font-weight: bold;
-  color: #062404;
+  color:  rgba(1, 3, 47, 0.867);
 }
 
 .SobreIFTS {
@@ -164,7 +164,7 @@ body {
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
   transition: opacity 0.3s ease, background-color 0.3s ease;
-  color: #062404; /* texto institucional */
+  color:  rgba(1, 3, 47, 0.867); /* texto institucional */
 }
 
 .SobreIFTS:hover {
@@ -174,8 +174,45 @@ body {
 
 .SobreIFTS.activa {
   font-weight: bold;
-  color: #062404;
+  color: rgba(1, 3, 47, 0.867);
 }
 
 
+.OfertaAcademica {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  color:  rgba(1, 3, 47, 0.867); /* texto institucional */
+}
 
+.OfertaAcademica:hover {
+  opacity: 3.6; /* ✅ más transparente al pasar el mouse */
+  color: rgba(4, 94, 71, 0.662); /* texto claro sobre fondo oscuro */
+}
+
+.OfertaAcademica.activa {
+  font-weight: bold;
+  color: rgba(1, 3, 47, 0.867);
+}
+
+
+.Convenio {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  color:  rgba(1, 3, 47, 0.867); /* texto institucional */
+}
+
+.Convenio:hover {
+  opacity: 3.6; /* ✅ más transparente al pasar el mouse */
+  color: rgba(4, 94, 71, 0.662); /* texto claro sobre fondo oscuro */
+}
+
+.Convenio.activa {
+  font-weight: bold;
+  color: rgba(1, 3, 47, 0.867);
+}
