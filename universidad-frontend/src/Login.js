@@ -78,8 +78,9 @@ function Login() {
           </p>
 
           
-
-          <button type="submit">Ingresar</button>
+          <p className="button">
+            <button type="submit">Ingresar</button>
+          </p>
         </form>
       </div>
     </div>
