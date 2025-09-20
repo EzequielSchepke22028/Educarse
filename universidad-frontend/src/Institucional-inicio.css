@@ -25,10 +25,11 @@ body {
   background-size: cover;
   background-position: center;
   color: rgb(240, 234, 234);
-  background-image: url('C:\Users\Exequiel Anaya\Desktop\JavaScript\Pagina-Educarse\universidad-frontend\public\imagenes\campus4.png');
-  padding-bottom: 15rem;
-  padding: 50;
-   z-index: 1;
+  background-image: url('/src/imagenes/campus4.png');
+  padding-top: 10px;
+  padding-bottom: 420px;
+  z-index: 1;
+
   
 
 }
@@ -90,14 +91,14 @@ body {
 
 .hero-content h1 {
   font-family: 'Merriweather';
-  font-weight: 700;
+  font-weight: 800;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #f2eaea;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 
@@ -198,21 +199,3 @@ body {
 }
 
 
-.Convenio {
-  cursor: pointer;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9); /* fondo blanco casi sólido */
-  transition: opacity 0.3s ease, background-color 0.3s ease;
-  color:  rgba(1, 3, 47, 0.867); /* texto institucional */
-}
-
-.Convenio:hover {
-  opacity: 3.6; /* ✅ más transparente al pasar el mouse */
-  color: rgba(4, 94, 71, 0.662); /* texto claro sobre fondo oscuro */
-}
-
-.Convenio.activa {
-  font-weight: bold;
-  color: rgba(1, 3, 47, 0.867);
-}
