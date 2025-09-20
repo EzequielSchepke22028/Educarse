@@ -25,25 +25,15 @@ oferta-wrapper {
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
+
 }
 
 
-.carrera-card button {
-  background-color: #01032f;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 1rem;
-}
-
-.carrera-card button:hover {
-  background-color: rgba(4, 94, 71, 0.662); /* texto claro sobre fondo oscuro */
-  color: rgba(255, 255, 255, 0.662); /* texto claro sobre fondo oscuro */
-
-  transform: scale(1.05);
+.areas-visuales {
+  display: flex;              /* ← activa distribución horizontal */
+  justify-content: center;    /* ← centra las tarjetas */
+  gap: 2rem;                  /* ← espacio entre ellas */
+  flex-wrap: wrap;            /* ← permite que bajen si no entran */
+  margin: 8rem 0;
+  margin-left: 0%;
 }

@@ -7,6 +7,11 @@ import Login from './Login';
 import Donde from './Donde';
 import SobreIFTS from './SobreIFTS';
 import OfertaAcademica from './OfertaAcademica';
+import Informática from './pages/Informática';
+import Administracion from './pages/Administracion';
+import Economia from './pages/Economia';
+import Idiomas from './pages/Idiomas';
+import Derecho from './pages/Derecho';
 import Convenio from './Convenio';
 import Register from './Register';
 import Materias from './Materias';
@@ -29,6 +34,11 @@ function App() {
     '/Donde',
     '/SobreIFTS',
     '/OfertaAcademica',
+    '/pages/Derecho',
+    '/pages/Idiomas',
+    '/pages/Economia',
+    '/pages/Administracion',
+    '/pages/Informática'
   ];
 
   const showCalendar = !ocultarCalendarioEn.includes(location.pathname);

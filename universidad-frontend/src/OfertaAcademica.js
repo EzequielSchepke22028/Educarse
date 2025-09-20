@@ -1,11 +1,13 @@
 import './OfertaAcademica.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Importación faltante
 
 function OfertaAcademica() {
   const [busqueda, setBusqueda] = useState('');
   const [categoria, setCategoria] = useState('');
   const [modalidad, setModalidad] = useState('');
   const [nivel, setNivel] = useState('');
+  const navigate = useNavigate();
 
   const carreras = [
     {
@@ -45,6 +47,7 @@ function OfertaAcademica() {
     <div className="oferta-wrapper">
       <h1>Oferta Académica</h1>
 
+      {/* Filtros */}
       <div className="filtros">
         <input
           type="text"
@@ -57,7 +60,9 @@ function OfertaAcademica() {
           <option value="">Todas las áreas</option>
           <option value="Informática">Informática</option>
           <option value="Administración">Administración</option>
-          <option value="Educación">Educación</option>
+          <option value="Derecho">Derecho</option>
+          <option value="Idiomas">Idiomas</option>
+          <option value="Economia">Economia</option>
         </select>
 
         <select value={modalidad} onChange={(e) => setModalidad(e.target.value)}>
@@ -74,21 +79,62 @@ function OfertaAcademica() {
         </select>
       </div>
 
-      <div className="carreras-grid">
-        {carrerasFiltradas.length > 0 ? (
-          carrerasFiltradas.map((carrera, index) => (
-            <div key={index} className="carrera-card">
-              <h3>{carrera.nombre}</h3>
-              <p><strong>Área:</strong> {carrera.categoria}</p>
-              <p><strong>Modalidad:</strong> {carrera.modalidad}</p>
-              <p><strong>Nivel:</strong> {carrera.nivel}</p>
-              <p><strong>Duración:</strong> {carrera.duracion}</p>
-              <button>Ver más</button>
-            </div>
-          ))
-        ) : (
-          <p className="no-resultados">No se encontraron carreras con esos filtros.</p>
-        )}
+      {/* Imágenes por área */}
+      <div className="areas-visuales">
+        <div
+          className="area-card"
+          onClick={() => {
+            setCategoria('Informática');
+            navigate('/informatica');
+          }}
+        >
+          <img src="/imagenes/informatica.png" alt="Informática" />
+          <p>Informática</p>
+        </div>
+
+        <div
+          className="area-card"
+          onClick={() => {
+            setCategoria('Administración');
+            navigate('/administracion');
+          }}
+        >
+          <img src="/imagenes/administracion.png" alt="Administración" />
+          <p>Administración</p>
+        </div>
+
+        <div
+          className="area-card"
+          onClick={() => {
+            setCategoria('Economia');
+            navigate('/economia');
+          }}
+        >
+          <img src="/imagenes/economia.png" alt="Economía" />
+          <p>Economía</p>
+        </div>
+
+        <div
+          className="area-card"
+          onClick={() => {
+            setCategoria('Idiomas');
+            navigate('/idiomas');
+          }}
+        >
+          <img src="/imagenes/idiomas.png" alt="Idiomas" />
+          <p>Idiomas</p>
+        </div>
+
+        <div
+          className="area-card"
+          onClick={() => {
+            setCategoria('Derecho');
+            navigate('/derecho');
+          }}
+        >
+          <img src="/imagenes/derecho.png" alt="Derecho" />
+          <p>Derecho</p>
+        </div>
       </div>
     </div>
   );
