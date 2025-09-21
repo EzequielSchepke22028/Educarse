@@ -34,11 +34,11 @@ function App() {
     '/Donde',
     '/SobreIFTS',
     '/OfertaAcademica',
-    '/pages/Derecho',
-    '/pages/Idiomas',
-    '/pages/Economia',
-    '/pages/Administracion',
-    '/pages/Informática'
+    '/Derecho',
+    '/Idiomas',
+    '/Economia',
+    '/Administracion',
+    '/Informática'
   ];
 
   const showCalendar = !ocultarCalendarioEn.includes(location.pathname);
