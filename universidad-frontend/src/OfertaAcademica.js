@@ -12,7 +12,7 @@ function OfertaAcademica() {
   const carreras = [
     {
       nombre: 'Tecnicatura en Desarrollo Web',
-      categoria: 'Informática',
+      categoria: 'Informatica',
       modalidad: 'Semipresencial',
       nivel: 'Pregrado',
       duracion: '3 años',
@@ -84,11 +84,11 @@ function OfertaAcademica() {
         <div
           className="area-card"
           onClick={() => {
-            setCategoria('Informática');
+            setCategoria('Informatica');
             navigate('/Informatica');
           }}
         >
-          <img src="/imagenes/informatica.png" alt="Informática" />
+          <img src="/imagenes/informatica.png" alt="Informatica" />
           <p>Informática</p>
         </div>
 

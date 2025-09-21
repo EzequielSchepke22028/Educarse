@@ -7,7 +7,7 @@ import Login from './Login';
 import Donde from './Donde';
 import SobreIFTS from './SobreIFTS';
 import OfertaAcademica from './OfertaAcademica';
-import Informática from './pages/Informática';
+import Informatica from './pages/Informatica';
 import Administracion from './pages/Administracion';
 import Economia from './pages/Economia';
 import Idiomas from './pages/Idiomas';
@@ -38,8 +38,9 @@ function App() {
     '/Idiomas',
     '/Economia',
     '/Administracion',
-    '/Informática',
-    '/Convenio'
+    '/Informatica',
+    '/Convenio',
+    '/registro'
   ];
 
   const showCalendar = !ocultarCalendarioEn.includes(location.pathname);
@@ -61,7 +62,7 @@ function App() {
         <Route path="/SobreIFTS" element={<SobreIFTS />} />
         <Route path="/OfertaAcademica" element={<OfertaAcademica />} />
         <Route path="/Convenio" element={<Convenio />} />
-        <Route path="/Informática" element={<Informática />} />
+        <Route path="/Informatica" element={<Informatica />} />
         <Route path="/Administracion" element={<Administracion />} />
         <Route path="/Economia" element={<Economia />} />
         <Route path="Idiomas" element={<Idiomas />} />
