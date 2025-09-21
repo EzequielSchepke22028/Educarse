@@ -38,7 +38,8 @@ function App() {
     '/Idiomas',
     '/Economia',
     '/Administracion',
-    '/Informática'
+    '/Informática',
+    '/Convenio'
   ];
 
   const showCalendar = !ocultarCalendarioEn.includes(location.pathname);

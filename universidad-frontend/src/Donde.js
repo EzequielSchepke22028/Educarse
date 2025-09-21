@@ -32,6 +32,17 @@ function Donde() {
 
       <h2>¿Dónde encontrarnos?</h2>
       <p>IFTS 9.</p>
+      <p2>Desde 1983, formando técnicos de nivel superior con las competencias necesarias para responder a las demandas sociales y productivas.
+        Como Mision:
+        Formar técnicos con capacidades adecuadas a las demandas sociales y productivas.
+        Vision:
+        Consolidarnos como la mejor oferta educativa de calidad en la zona.
+
+        Objetivos:
+        Articulación entre formación técnica y mundo laboral.
+        Articulación con universidades.
+        Promover la capacitación continua.
+      </p2>
 
       <LoadScript googleMapsApiKey="AIzaSyD2p4-lJASptfkK3DeRDmQkru2Oe_5t210">
         <GoogleMap mapContainerStyle={containerStyle} center={IFTS9} zoom={15}>
