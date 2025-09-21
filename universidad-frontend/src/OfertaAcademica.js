@@ -85,7 +85,7 @@ function OfertaAcademica() {
           className="area-card"
           onClick={() => {
             setCategoria('Informática');
-            navigate('/informatica');
+            navigate('/Informatica');
           }}
         >
           <img src="/imagenes/informatica.png" alt="Informática" />
@@ -96,7 +96,7 @@ function OfertaAcademica() {
           className="area-card"
           onClick={() => {
             setCategoria('Administración');
-            navigate('/administracion');
+            navigate('/Administracion');
           }}
         >
           <img src="/imagenes/administracion.png" alt="Administración" />
@@ -107,7 +107,7 @@ function OfertaAcademica() {
           className="area-card"
           onClick={() => {
             setCategoria('Economia');
-            navigate('/economia');
+            navigate('/Economia');
           }}
         >
           <img src="/imagenes/economia.png" alt="Economía" />
@@ -118,7 +118,7 @@ function OfertaAcademica() {
           className="area-card"
           onClick={() => {
             setCategoria('Idiomas');
-            navigate('/idiomas');
+            navigate('/Idiomas');
           }}
         >
           <img src="/imagenes/idiomas.png" alt="Idiomas" />
@@ -129,7 +129,7 @@ function OfertaAcademica() {
           className="area-card"
           onClick={() => {
             setCategoria('Derecho');
-            navigate('/derecho');
+            navigate('/Derecho');
           }}
         >
           <img src="/imagenes/derecho.png" alt="Derecho" />

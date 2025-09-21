@@ -60,6 +60,12 @@ function App() {
         <Route path="/SobreIFTS" element={<SobreIFTS />} />
         <Route path="/OfertaAcademica" element={<OfertaAcademica />} />
         <Route path="/Convenio" element={<Convenio />} />
+        <Route path="/Informática" element={<Informática />} />
+        <Route path="/Administracion" element={<Administracion />} />
+        <Route path="/Economia" element={<Economia />} />
+        <Route path="Idiomas" element={<Idiomas />} />
+        <Route path="/Derecho" element={<Derecho />} />
+
       </Routes>
 
       {showCalendar && <Calendario />}
