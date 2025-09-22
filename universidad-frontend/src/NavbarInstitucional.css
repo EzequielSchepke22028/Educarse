@@ -1,58 +1,63 @@
 .institucional-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* ✅ más alto que el login-panel */
-  background-color: rgba(1, 3, 47, 0.867);
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 2rem;
+  background-color: #00274d;
+  padding: 2.7rem 2rem;
+  color: white;
 }
 
-/* Alinea los botones a la derecha */
+
+.logo img {
+  height: 50px;
+  opacity: 0.95;
+}
+
+
 .botones-navbar {
+  position: fixed;
+  right: 0;
+  top: 20px;
   display: flex;
-  gap: 0;
-  margin-left:0; /* ✅ empuja el bloque hacia la derecha */
-  width: 1;
-  height: 1;
+  gap: 2px;;
+  z-index: 999; /* asegura que estén por encima de todo */
 }
 
-/* Botón inscribite */
-.btn {
-margin-left:80%;
- padding: 0.5rem 0.1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: rgb(255, 255, 255);
-  font-weight:normal;
-  border-radius: 30px;
-  width: 150px;
-  height: 205;
-  transition: background-color 1.0s ease;
-  border: 0;
-  cursor: pointer;
-}
+
+
+.btn,
 .btncampus {
-  padding: 0.5rem 0.2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: rgb(255, 255, 255);
-  font-weight:normal;
-  border-radius: 30px;
-  width: 130px;
-  height: 205;
-  transition: background-color 1.0s ease;
-  border: 0;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
- margin-left:10%;
-
-
+  font-size: 0.9rem;
 }
 
-/* Hover */
-.btn:hover,
-.btncampus:hover {
-  background-color: #f0f0f0;
-  color: #01032f;
+
+.btn {
+  background-color: white;
+  color: #00274d;
+}
+
+.btn:hover {
+  background-color: white;
+  transform: scale(1.35); /* opcional: efecto de agrandamiento */
+  color: white;
+}
+
+.btncampus {
+  background-color: white;
+  color: #00274d;
   
 }
+
+.btncampus:hover {
+  background-color: white;
+  color: white;
+  transform: scale(1.35); /* opcional: efecto de agrandamiento */
+
+}
+
+

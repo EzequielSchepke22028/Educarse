@@ -16,23 +16,24 @@ function NavbarInstitucional() {
 
 
   return (
-    <nav className="institucional-navbar">
-      <div className="logo">
-        <Link to="/">
-          <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
-        </Link>
-    </div>
+<nav className="institucional-navbar">
+  <div className="logo">
+    <Link to="/">
+      <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
+    </Link>
+  </div>
 
-      
-        <button className="btn" onClick={() => manejarClick('/Formulario')}>
-            Inscribite Ahora
-        </button>
-        <button className="btncampus" onClick={() => manejarClick('/login')}>
-            Accedé al campus
-        </button>
-        
+  <div className="botones-navbar">
+    <button className="btn" onClick={() => manejarClick('/Formulario')}>
+      Inscribite 
+      Ahora
+    </button>
+    <button className="btncampus" onClick={() => manejarClick('/login')}>
+      Accedé al campus
+    </button>
+  </div>
+</nav>
 
-    </nav>
   );
 }
 
