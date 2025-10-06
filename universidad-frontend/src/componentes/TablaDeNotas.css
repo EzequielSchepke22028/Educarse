@@ -1,0 +1,64 @@
+.bloc-notas {
+  width: 100%;
+  max-width: none;
+  margin-top: 1rem;
+}
+
+
+.bloc-header {
+   width: 210px; /* antes 260px */
+
+  display: up;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bloc-header input {
+  flex: 1;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+
+.acciones button {
+  margin-left: 0.1rem;
+  padding: 0.2rem 0,1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formato {
+  margin: 1rem 0;
+}
+
+.formato button {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.editor-contenido {
+  background: #f9f9f9;
+
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 6px;
+  min-height: 300px;
+}
+
+.columna-grisada {
+  background-color: #f0f0f0;
+  font-weight:normal;
+  padding: 0.8rem 1.5rem; /* más espacio horizontal */
+  min-width: 250px;       /* asegura que no se achique demasiado */
+  justify-content: center;
+  align-items: center; 
+  display: flex;
+
+  
+}

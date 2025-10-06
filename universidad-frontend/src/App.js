@@ -18,33 +18,16 @@ import Materias from './Materias';
 import OpcionesAElegir from './OpcionesAElegir';
 import Formulario from './Formulario';
 import Instituciones from './Instituciones';
-import Calendario from './Calendario';
 import Chatbot from './Chatbot';
 import Institucionalinicio from './Institucional-Inicio';
 
 function App() {
   const location = useLocation();
 
-  // Rutas donde NO se muestra el calendario
-  const ocultarCalendarioEn = [
-    '/',
-    '/instituciones',
-    '/login',
-    '/Formulario',
-    '/Donde',
-    '/SobreIFTS',
-    '/OfertaAcademica',
-    '/Derecho',
-    '/Idiomas',
-    '/Economia',
-    '/Administracion',
-    '/Informatica',
-    '/Convenio',
-    '/registro'
-  ];
 
-  const showCalendar = !ocultarCalendarioEn.includes(location.pathname);
+
   const showChatbot = location.pathname !== '/';
+  
 
   return (
     <>
@@ -70,7 +53,6 @@ function App() {
 
       </Routes>
 
-      {showCalendar && <Calendario />}
       {showChatbot && <Chatbot />}
     </>
   );
