@@ -14,17 +14,28 @@ function NavbarInstitucional() {
     }, 300);
   };
 
-  // 👇 Ocultar botones si estás en /opcionesaelegir
   const mostrarCampus = location.pathname !== '/opcionesaelegir';
   const mostrarRegis = location.pathname !== '/opcionesaelegir';
+  const mostrarTextoEducativo = location.pathname === '/opcionesaelegir';
+
+  // 👇 Clase condicional
+  const navbarClase = location.pathname === '/opcionesaelegir'
+    ? 'institucional-navbar navbar-compacta'
+    : 'institucional-navbar';
 
   return (
-    <nav className="institucional-navbar">
+    <nav className={navbarClase}>
       <div className="logo">
         <Link to="/">
           <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
         </Link>
       </div>
+
+      {mostrarTextoEducativo && (
+        <div className="texto-educativo">
+          <p>📚 Mi campus</p>
+        </div>
+      )}
 
       <div className="botones-navbar">
         {mostrarRegis && (

@@ -1,10 +1,11 @@
 .institucional-navbar {
-  display: flex;
+  display:block;
   justify-content: space-between;
   align-items: center;
   background-color: #00274d;
   padding: 2.7rem 2rem;
   color: white;
+  
 }
 
 
@@ -60,4 +61,9 @@
 
 }
 
+  .navbar-compacta {
+  font-size:0.9cm;
+  padding: 0.6rem 8rem;
+  height: 80px;
+}
 
