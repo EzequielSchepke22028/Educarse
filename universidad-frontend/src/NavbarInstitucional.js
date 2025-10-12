@@ -17,6 +17,7 @@ function NavbarInstitucional() {
   const mostrarCampus = location.pathname !== '/opcionesaelegir';
   const mostrarRegis = location.pathname !== '/opcionesaelegir';
   const mostrarTextoEducativo = location.pathname === '/opcionesaelegir';
+  
 
   // 👇 Clase condicional
   const navbarClase = location.pathname === '/opcionesaelegir'

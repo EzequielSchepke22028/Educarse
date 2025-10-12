@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 
-.editor-contenido {
+.editor-contenido { /*bloc de notas*/
   background: #f9f9f9;
 
   padding: 1rem 2rem 2rem 2rem;
@@ -51,14 +51,89 @@
   min-height: 300px;
 }
 
+/* Columna de materia */
 .columna-grisada {
   background-color: #f0f0f0;
-  font-weight:normal;
-  padding: 0.8rem 1.5rem; /* más espacio horizontal */
-  min-width: 250px;       /* asegura que no se achique demasiado */
-  justify-content: center;
-  align-items: center; 
+  font-weight: normal;
+  padding: 0.8rem 1.5rem;
+  min-width: 250px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Campo editable y bloqueado base */
+.campo-input {
+  width: 100%;
   
+ 
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+/* Campo bloqueado */
+.estado-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 8px 8px;
+  min-width: 200px;
+}
+
+/* Campo editable */
+.editable {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Campo condición siempre bloqueado */
+.condicion-bloqueada {
+  background-color: #e0e0e0;
+  color: #555;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  padding: 6px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  
+}
+
+/* Contenedor de campo + botón */
+.campo-editable {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 40px; /* mueve todo el campo un poco a la derecha */
+}
+
+
+/* Botón lápiz */
+.lapiz-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  color: #555;
+  transition: transform 0.2s ease;
+}
+
+.lapiz-btn:hover {
+  transform: scale(1.1);
+}
+
+
+.correlativas-bloqueado {
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: not-allowed;
+  padding: 2x 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 3px; /* mismo desplazamiento que Estado */
 }

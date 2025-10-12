@@ -4,33 +4,77 @@ import "./TablaDeNotas.css";
 function TablaDeNotas() {
   const [materias, setMaterias] = useState([
     // 📘 1º Año
-    { id: 101, anio: 1, correlativas: "-", nombre: "Matemática", nota: "", estado: "" },
-    { id: 102, anio: 1, correlativas: "-", nombre: "Lógica", nota: "", estado: "" },
-    { id: 103, anio: 1, correlativas: "-", nombre: "Introducción a la Programación", nota: "", estado: "" },
-    { id: 104, anio: 1, correlativas: "-", nombre: "Arquitectura de Computadoras", nota: "", estado: "" },
-    { id: 105, anio: 1, correlativas: "-", nombre: "Inglés Técnico I", nota: "", estado: "" },
-    { id: 106, anio: 1, correlativas: "-", nombre: "Práctica Profesionalizante I", nota: "", estado: "" },
+    { id: 101, anio: 1, correlativas: "-", nombre: "Matemática", nota: "", estado: "", condicion: "" },
+    { id: 102, anio: 1, correlativas: "-", nombre: "Lógica", nota: "", estado: "", condicion: "" },
+    { id: 103, anio: 1, correlativas: "-", nombre: "Introducción a la Programación", nota: "", estado: "", condicion: "" },
+    { id: 104, anio: 1, correlativas: "-", nombre: "Arquitectura de Computadoras", nota: "", estado: "", condicion: "" },
+    { id: 105, anio: 1, correlativas: "-", nombre: "Inglés Técnico I", nota: "", estado: "", condicion: "" },
+    { id: 106, anio: 1, correlativas: "-", nombre: "Práctica Profesionalizante I", nota: "", estado: "", condicion: "" },
 
     // 📗 2º Año
-    { id: 201, anio: 2, correlativas: "101, 103", nombre: "Programación I", nota: "", estado: "" },
-    { id: 202, anio: 2, correlativas: "101", nombre: "Estadística", nota: "", estado: "" },
-    { id: 203, anio: 2, correlativas: "104", nombre: "Sistemas Operativos", nota: "", estado: "" },
-    { id: 204, anio: 2, correlativas: "102", nombre: "Bases de Datos", nota: "", estado: "" },
-    { id: 205, anio: 2, correlativas: "105", nombre: "Inglés Técnico II", nota: "", estado: "" },
-    { id: 206, anio: 2, correlativas: "106", nombre: "Práctica Profesionalizante II", nota: "", estado: "" },
+    { id: 201, anio: 2, correlativas: "101, 103", nombre: "Programación I", nota: "", estado: "", condicion: "" },
+    { id: 202, anio: 2, correlativas: "101", nombre: "Estadística", nota: "", estado: "", condicion: "" },
+    { id: 203, anio: 2, correlativas: "104", nombre: "Sistemas Operativos", nota: "", estado: "", condicion: "" },
+    { id: 204, anio: 2, correlativas: "102", nombre: "Bases de Datos", nota: "", estado: "", condicion: "" },
+    { id: 205, anio: 2, correlativas: "105", nombre: "Inglés Técnico II", nota: "", estado: "", condicion: "" },
+    { id: 206, anio: 2, correlativas: "106", nombre: "Práctica Profesionalizante II", nota: "", estado: "", condicion: "" },
 
     // 📙 3º Año
-    { id: 301, anio: 3, correlativas: "201", nombre: "Programación II", nota: "", estado: "" },
-    { id: 302, anio: 3, correlativas: "204", nombre: "Análisis de Sistemas", nota: "", estado: "" },
-    { id: 303, anio: 3, correlativas: "203", nombre: "Redes y Comunicaciones", nota: "", estado: "" },
-    { id: 304, anio: 3, correlativas: "202", nombre: "Gestión de Proyectos", nota: "", estado: "" },
-    { id: 305, anio: 3, correlativas: "205", nombre: "Inglés Técnico III", nota: "", estado: "" },
-    { id: 306, anio: 3, correlativas: "206", nombre: "Práctica Profesionalizante III", nota: "", estado: "" },
+    { id: 301, anio: 3, correlativas: "201", nombre: "Programación II", nota: "", estado: "", condicion: "" },
+    { id: 302, anio: 3, correlativas: "204", nombre: "Análisis de Sistemas", nota: "", estado: "", condicion: "" },
+    { id: 303, anio: 3, correlativas: "203", nombre: "Redes y Comunicaciones", nota: "", estado: "", condicion: "" },
+    { id: 304, anio: 3, correlativas: "202", nombre: "Gestión de Proyectos", nota: "", estado: "", condicion: "" },
+    { id: 305, anio: 3, correlativas: "205", nombre: "Inglés Técnico III", nota: "", estado: "", condicion: "" },
+    { id: 306, anio: 3, correlativas: "206", nombre: "Práctica Profesionalizante III", nota: "", estado: "", condicion: "" },
   ]);
+
+  const [modoEdicion, setModoEdicion] = useState({});
+
+  const toggleEdicion = (id, campo) => {
+    const clave = `${id}-${campo}`;
+    setModoEdicion((prev) => ({
+      ...prev,
+      [clave]: !prev[clave],
+    }));
+  };
 
   const manejarCambio = (index, campo, valor) => {
     const nuevasMaterias = [...materias];
     nuevasMaterias[index][campo] = valor;
+
+    if (campo === "nota") {
+      const notaNumerica = parseFloat(valor);
+
+      if (valor.trim() === "") {
+        nuevasMaterias[index].estado = "";
+      } else if (isNaN(notaNumerica) || notaNumerica > 10) {
+        nuevasMaterias[index].estado = "Valor incorrecto";
+      } else if (notaNumerica >= 7) {
+        nuevasMaterias[index].estado = "Promocionada";
+      } else if (notaNumerica >= 4) {
+        nuevasMaterias[index].estado = "A final";
+      } else {
+        nuevasMaterias[index].estado = "Desaprobada-Recursar";
+      }
+    }
+
+    nuevasMaterias.forEach((materia) => {
+      const idsCorrelativas = materia.correlativas
+        .split(",")
+        .map(id => id.trim())
+        .filter(id => id !== "-");
+
+      const notasCorrelativas = idsCorrelativas.map(id => {
+        const correlativa = nuevasMaterias.find(m => m.id === parseInt(id));
+        return correlativa ? parseFloat(correlativa.nota) : null;
+      });
+
+      const todasPromocionadas = notasCorrelativas.every(nota => nota !== null && nota >= 7 && nota < 11);
+      materia.condicion = todasPromocionadas
+        ? "Disponible para cursar"
+        : "Requiere Correlativas";
+    });
+
     setMaterias(nuevasMaterias);
   };
 
@@ -45,6 +89,7 @@ function TablaDeNotas() {
             <th>Materia</th>
             <th>Nota</th>
             <th>Estado</th>
+            <th>Condición</th>
           </tr>
         </thead>
         <tbody>
@@ -54,11 +99,18 @@ function TablaDeNotas() {
               <tr key={materia.id}>
                 <td>{materia.id}</td>
                 <td>
-                  <input
-                    type="text"
-                    value={materia.correlativas}
-                    onChange={(e) => manejarCambio(index, "correlativas", e.target.value)}
-                  />
+                  <div className="campo-editable">
+                    <input
+                      type="text"
+                      value={materia.correlativas}
+                      readOnly={!modoEdicion[`${materia.id}-correlativas`]}
+                      className={`campo-input ${modoEdicion[`${materia.id}-correlativas`] ? "editable" : "correlativas-bloqueado"}`}
+                      onChange={(e) => manejarCambio(index, "correlativas", e.target.value)}
+                    />
+                    <button onClick={() => toggleEdicion(materia.id, "correlativas")} className="lapiz-btn">
+                      {modoEdicion[`${materia.id}-correlativas`] ? "✔️" : "✏️"}
+                    </button>
+                  </div>
                 </td>
                 <td className="columna-grisada">{materia.nombre}</td>
                 <td>
@@ -69,11 +121,33 @@ function TablaDeNotas() {
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
-                    value={materia.estado}
-                    onChange={(e) => manejarCambio(index, "estado", e.target.value)}
-                  />
+                  <div className="campo-editable">
+                    <select
+                      value={materia.estado}
+                      onChange={(e) => manejarCambio(index, "estado", e.target.value)}
+                      disabled={!modoEdicion[`${materia.id}-estado`]}
+                      className={`campo-input ${modoEdicion[`${materia.id}-estado`] ? "editable" : "estado-bloqueado"}`}
+                    >
+                      <option value="">-- Seleccionar estado --</option>
+                      <option value="Desaprobada-Recursar">Desaprobada-Recursar</option>
+                      <option value="A final">A final</option>
+                      <option value="Promocionada">Promocionada</option>
+                      <option value="Valor incorrecto">Valor incorrecto</option>
+                    </select>
+                    <button onClick={() => toggleEdicion(materia.id, "estado")} className="lapiz-btn">
+                      {modoEdicion[`${materia.id}-estado`] ? "✔️" : "✏️"}
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div className="contenedor-condicion">
+                    <input
+                      type="text"
+                      value={materia.condicion}
+                      readOnly
+                      className="condicion-bloqueada"
+                    />
+                  </div>
                 </td>
               </tr>
             ))}
@@ -84,6 +158,7 @@ function TablaDeNotas() {
 
   return (
     <div>
+      <h2 className="titulo-libreta">MI LIBRETA VIRTUAL</h2>
       {renderTablaPorAnio(1, "📘", "1º Año Analisis de Sistemas - IFTS 4")}
       {renderTablaPorAnio(2, "📗", "2º Año Analisis de Sistemas - IFTS 4")}
       {renderTablaPorAnio(3, "📙", "3º Año Analisis de Sistemas - IFTS 4")}
