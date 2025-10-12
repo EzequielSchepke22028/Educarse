@@ -38,38 +38,43 @@ function TablaDeNotas() {
     }));
   };
 
-  const manejarCambio = (index, campo, valor) => {
-    const nuevasMaterias = [...materias];
-    nuevasMaterias[index][campo] = valor;
+  const manejarCambio = (id, campo, valor) => {
+    const nuevasMaterias = materias.map((materia) =>
+      materia.id === id ? { ...materia, [campo]: valor } : materia
+    );
+
+    const materiaEditada = nuevasMaterias.find((m) => m.id === id);
 
     if (campo === "nota") {
       const notaNumerica = parseFloat(valor);
-
       if (valor.trim() === "") {
-        nuevasMaterias[index].estado = "";
+        materiaEditada.estado = "";
       } else if (isNaN(notaNumerica) || notaNumerica > 10) {
-        nuevasMaterias[index].estado = "Valor incorrecto";
+        materiaEditada.estado = "Valor incorrecto";
       } else if (notaNumerica >= 7) {
-        nuevasMaterias[index].estado = "Promocionada";
+        materiaEditada.estado = "Promocionada";
       } else if (notaNumerica >= 4) {
-        nuevasMaterias[index].estado = "A final";
+        materiaEditada.estado = "A final";
       } else {
-        nuevasMaterias[index].estado = "Desaprobada-Recursar";
+        materiaEditada.estado = "Desaprobada-Recursar";
       }
     }
 
     nuevasMaterias.forEach((materia) => {
       const idsCorrelativas = materia.correlativas
         .split(",")
-        .map(id => id.trim())
-        .filter(id => id !== "-");
+        .map((id) => id.trim())
+        .filter((id) => id !== "-");
 
-      const notasCorrelativas = idsCorrelativas.map(id => {
-        const correlativa = nuevasMaterias.find(m => m.id === parseInt(id));
+      const notasCorrelativas = idsCorrelativas.map((id) => {
+        const correlativa = nuevasMaterias.find((m) => m.id === parseInt(id));
         return correlativa ? parseFloat(correlativa.nota) : null;
       });
 
-      const todasPromocionadas = notasCorrelativas.every(nota => nota !== null && nota >= 7 && nota < 11);
+      const todasPromocionadas = notasCorrelativas.every(
+        (nota) => nota !== null && nota >= 7 && nota < 11
+      );
+
       materia.condicion = todasPromocionadas
         ? "Disponible para cursar"
         : "Requiere Correlativas";
@@ -95,7 +100,7 @@ function TablaDeNotas() {
         <tbody>
           {materias
             .filter((materia) => materia.anio === anio)
-            .map((materia, index) => (
+            .map((materia) => (
               <tr key={materia.id}>
                 <td>{materia.id}</td>
                 <td>
@@ -105,7 +110,7 @@ function TablaDeNotas() {
                       value={materia.correlativas}
                       readOnly={!modoEdicion[`${materia.id}-correlativas`]}
                       className={`campo-input ${modoEdicion[`${materia.id}-correlativas`] ? "editable" : "correlativas-bloqueado"}`}
-                      onChange={(e) => manejarCambio(index, "correlativas", e.target.value)}
+                      onChange={(e) => manejarCambio(materia.id, "correlativas", e.target.value)}
                     />
                     <button onClick={() => toggleEdicion(materia.id, "correlativas")} className="lapiz-btn">
                       {modoEdicion[`${materia.id}-correlativas`] ? "✔️" : "✏️"}
@@ -117,14 +122,14 @@ function TablaDeNotas() {
                   <input
                     type="text"
                     value={materia.nota}
-                    onChange={(e) => manejarCambio(index, "nota", e.target.value)}
+                    onChange={(e) => manejarCambio(materia.id, "nota", e.target.value)}
                   />
                 </td>
                 <td>
                   <div className="campo-editable">
                     <select
                       value={materia.estado}
-                      onChange={(e) => manejarCambio(index, "estado", e.target.value)}
+                      onChange={(e) => manejarCambio(materia.id, "estado", e.target.value)}
                       disabled={!modoEdicion[`${materia.id}-estado`]}
                       className={`campo-input ${modoEdicion[`${materia.id}-estado`] ? "editable" : "estado-bloqueado"}`}
                     >
