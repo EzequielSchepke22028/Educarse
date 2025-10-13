@@ -1,9 +1,10 @@
 import './Institucional-inicio.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 function Institucionalinicio() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [seleccionada, setSeleccionada] = useState(false);
 
   const manejarClick = (rutaDestino) => {
@@ -13,6 +14,9 @@ function Institucionalinicio() {
     }, 300);
   };
 
+  // 👇 Ocultar el texto si estás en /opcionesaelegir
+  const mostrarAcceso = location.pathname !== '/opcionesaelegir';
+
   return (
     <div className="institucional-wrapper">
       <header className="institucional-header">
@@ -20,6 +24,9 @@ function Institucionalinicio() {
           <h1>INSTITUTO DE FORMACIÓN TÉCNICA SUPERIOR</h1>
           <p>Educación pública, no arancelada y de calidad para tu futuro</p>
 
+          {mostrarAcceso && (
+            <h2 className="acceso-campus">Accede al campus</h2>
+          )}
         </div>
       </header>
 

@@ -1,9 +1,10 @@
 import './NavbarInstitucional.css';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 function NavbarInstitucional() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [seleccionada, setSeleccionada] = useState(false);
 
   const manejarClick = (rutaDestino) => {
@@ -13,27 +14,46 @@ function NavbarInstitucional() {
     }, 300);
   };
 
+  const mostrarCampus = location.pathname !== '/opcionesaelegir';
+  const mostrarRegis = location.pathname !== '/opcionesaelegir';
+  const mostrarTextoEducativo = location.pathname === '/opcionesaelegir';
+  
 
+  // 👇 Clase condicional
+  const navbarClase = location.pathname === '/opcionesaelegir'
+    ? 'institucional-navbar navbar-compacta'
+    : 'institucional-navbar';
 
   return (
-<nav className="institucional-navbar">
-  <div className="logo">
-    <Link to="/">
-      <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
-    </Link>
-  </div>
+    <nav className={navbarClase}>
+      <div className="logo">
+        <Link to="/">
+          <img src="/imagenes/logoIFTS.png" alt="Logo IFTS" />
+        </Link>
+      </div>
 
-  <div className="botones-navbar">
-    <button className="btn" onClick={() => manejarClick('/Formulario')}>
-      Inscribite 
-      Ahora
-    </button>
-    <button className="btncampus" onClick={() => manejarClick('/login')}>
-      Accedé al campus
-    </button>
-  </div>
-</nav>
+      {mostrarTextoEducativo && (
+        <div className="texto-educativo">
+          <p>📚 Mi campus</p>
+        </div>
+      )}
 
+      <div className="botones-navbar">
+        {mostrarRegis && (
+          <>
+            <button className="btn" onClick={() => manejarClick('/Formulario')}>
+              Inscribite Ahora
+            </button>
+
+            {mostrarCampus && (
+              <button className="btncampus" onClick={() => manejarClick('/login')}>
+                Accedé al campus
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    </nav>
   );
 }
 
