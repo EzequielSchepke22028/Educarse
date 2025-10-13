@@ -44,7 +44,7 @@ function Donde() {
         Promover la capacitación continua.
       </p2>
 
-      <LoadScript googleMapsApiKey="AIzaSyD2p4-lJASptfkK3DeRDmQkru2Oe_5t210">
+      <LoadScript googleMapsApiKey="AIzaSyA7p3RqbsYI5M6ZRi69LuObnBujQ1s1lmQ">
         <GoogleMap mapContainerStyle={containerStyle} center={IFTS9} zoom={15}>
           <Marker position={IFTS9} icon={{ url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' }} />
         </GoogleMap>
@@ -52,7 +52,7 @@ function Donde() {
 
       <p>IFTS 12.</p>
 
-      <LoadScript googleMapsApiKey="AIzaSyD2p4-lJASptfkK3DeRDmQkru2Oe_5t210">
+      <LoadScript googleMapsApiKey="AIzaSyA7p3RqbsYI5M6ZRi69LuObnBujQ1s1lmQ">
         <GoogleMap mapContainerStyle={containerStyle} center={IFTS4} zoom={15}>
           <Marker position={IFTS4} icon={{ url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' }} />
         </GoogleMap>
@@ -60,7 +60,7 @@ function Donde() {
 
       <p>IFTS 4.</p>
 
-      <LoadScript googleMapsApiKey="AIzaSyD2p4-lJASptfkK3DeRDmQkru2Oe_5t210">
+      <LoadScript googleMapsApiKey="AIzaSyA7p3RqbsYI5M6ZRi69LuObnBujQ1s1lmQ">
         <GoogleMap mapContainerStyle={containerStyle} center={IFTS12} zoom={15}>
           <Marker position={IFTS12} icon={{ url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' }} />
         </GoogleMap>
