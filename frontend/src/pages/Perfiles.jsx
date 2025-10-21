@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { logout } from '../services/authService';
 import { duplicarPerfiles, getProfiles, createProfile, updateProfile, deleteProfile } from '../services/profilesService';
 import { useNavigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const Container = styled.div`
   max-width: 900px;

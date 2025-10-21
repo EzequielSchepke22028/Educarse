@@ -76,6 +76,7 @@ function App() {
         {/* Rutas públicas <Route path="/perfiles" element={<Perfiles />}></Route> */}
         {/* Rutas privadas. ACA DEJO LA RUTA PRIVADA YA QUE CONVIENE MAS PARA evitar conflictos y garantizar control de acceso.*/}
         <Route path="/perfiles"element={<PrivateRoute><Perfiles /></PrivateRoute>}/>
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
 
       </Routes>
 

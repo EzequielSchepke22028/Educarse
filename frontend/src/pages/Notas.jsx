@@ -5,7 +5,7 @@ import {
     updateNote, 
     deleteNote
 } from '../services/notesService';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 //import { getNotes, createNote, updateNote, deleteNote } from '../services/notesService';  crud notas
 
 const Notas = () => {
